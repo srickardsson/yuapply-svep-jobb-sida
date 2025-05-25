@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Mail, Smartphone, Users, Zap, ArrowRight } from "lucide-react";
+import { Mail, Smartphone, Users, Zap, ArrowRight, Heart, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -45,15 +45,42 @@ const Index = () => {
           </Button>
         </div>
 
-        {/* Mobile App Mockup */}
+        {/* Mobile App Mockup - Home Screen */}
         <div className="relative max-w-md mx-auto">
           <div className="bg-black rounded-[2.5rem] p-2 shadow-2xl">
             <div className="bg-white rounded-[2rem] overflow-hidden h-[600px] relative">
-              <img 
-                src="/lovable-uploads/d9d8f1db-e6f7-48ca-9787-e393b981d145.png" 
-                alt="yuapply app hem-skärm"
-                className="w-full h-full object-cover"
-              />
+              {/* Status bar */}
+              <div className="bg-gray-100 h-8 flex items-center justify-between px-4 text-xs text-gray-600">
+                <span>9:41</span>
+                <span>●●●●● 100%</span>
+              </div>
+              
+              {/* Header */}
+              <div className="bg-cyan-500 text-white p-4 text-center">
+                <h3 className="text-lg font-bold">yuapply</h3>
+                <p className="text-cyan-100 text-sm">Hitta ditt drömjobb</p>
+              </div>
+              
+              {/* Job Card Skeleton */}
+              <div className="p-4 h-full flex items-center justify-center">
+                <div className="bg-white border-2 border-gray-200 rounded-xl p-6 w-full max-w-xs shadow-lg">
+                  <div className="w-16 h-16 bg-cyan-100 rounded-full mx-auto mb-4"></div>
+                  <div className="h-4 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-3 bg-gray-100 rounded mb-4"></div>
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="h-3 bg-gray-100 rounded w-16"></div>
+                    <div className="h-3 bg-gray-100 rounded w-20"></div>
+                  </div>
+                  <div className="flex justify-center gap-4">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                      <X className="w-6 h-6 text-red-500" />
+                    </div>
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-green-500" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -100,8 +127,8 @@ const Index = () => {
           </Card>
         </div>
 
-        {/* App Screenshots */}
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        {/* App Screenshots - Swipe Feature */}
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               För jobbsökande
@@ -111,20 +138,110 @@ const Index = () => {
               intressanta jobbmöjligheter. Få notifikationer när arbetsgivare 
               visar intresse för din profil.
             </p>
-            <div className="flex gap-4">
-              <div className="w-48 h-96 bg-black rounded-[1.5rem] p-1 shadow-lg">
-                <div className="bg-white rounded-[1.2rem] overflow-hidden h-full">
-                  <img 
-                    src="/lovable-uploads/4805027d-dd0e-4bff-8105-e35a3666bc9a.png" 
-                    alt="yuapply swipe-funktion"
-                    className="w-full h-full object-cover"
-                  />
+          </div>
+
+          <div className="flex justify-center">
+            <div className="w-48 h-96 bg-black rounded-[1.5rem] p-1 shadow-lg">
+              <div className="bg-white rounded-[1.2rem] overflow-hidden h-full">
+                {/* Status bar */}
+                <div className="bg-gray-100 h-6 flex items-center justify-center text-xs text-gray-600">
+                  9:41
+                </div>
+                
+                {/* Swipe Interface */}
+                <div className="p-4 h-full flex flex-col">
+                  <div className="text-center mb-4">
+                    <div className="h-3 bg-cyan-500 rounded w-20 mx-auto"></div>
+                  </div>
+                  
+                  {/* Job Cards Stack */}
+                  <div className="flex-1 relative">
+                    {/* Card 3 (background) */}
+                    <div className="absolute inset-0 bg-gray-100 rounded-lg transform rotate-2 scale-95"></div>
+                    {/* Card 2 (middle) */}
+                    <div className="absolute inset-0 bg-gray-200 rounded-lg transform -rotate-1 scale-97"></div>
+                    {/* Card 1 (front) */}
+                    <div className="absolute inset-0 bg-white border border-gray-200 rounded-lg p-4 shadow-md">
+                      <div className="w-12 h-12 bg-blue-100 rounded-full mx-auto mb-2"></div>
+                      <div className="h-3 bg-gray-200 rounded mb-2"></div>
+                      <div className="h-2 bg-gray-100 rounded mb-3"></div>
+                      <div className="flex justify-between text-xs mb-2">
+                        <div className="h-2 bg-gray-100 rounded w-12"></div>
+                        <div className="h-2 bg-gray-100 rounded w-16"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex justify-center gap-6 pt-4">
+                    <div className="w-12 h-12 bg-red-50 border-2 border-red-200 rounded-full flex items-center justify-center">
+                      <X className="w-6 h-6 text-red-400" />
+                    </div>
+                    <div className="w-12 h-12 bg-green-50 border-2 border-green-200 rounded-full flex items-center justify-center">
+                      <Heart className="w-6 h-6 text-green-400" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Profile Management */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="flex justify-center order-2 md:order-1">
+            <div className="w-48 h-96 bg-black rounded-[1.5rem] p-1 shadow-lg">
+              <div className="bg-white rounded-[1.2rem] overflow-hidden h-full">
+                {/* Status bar */}
+                <div className="bg-gray-100 h-6 flex items-center justify-center text-xs text-gray-600">
+                  9:41
+                </div>
+                
+                {/* Profile Interface */}
+                <div className="p-4 h-full">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-cyan-100 rounded-full mx-auto mb-2"></div>
+                    <div className="h-3 bg-gray-200 rounded w-24 mx-auto mb-1"></div>
+                    <div className="h-2 bg-gray-100 rounded w-20 mx-auto"></div>
+                  </div>
+                  
+                  {/* Profile Stats */}
+                  <div className="grid grid-cols-3 gap-2 mb-6">
+                    <div className="text-center">
+                      <div className="h-4 bg-cyan-100 rounded mb-1"></div>
+                      <div className="h-2 bg-gray-100 rounded"></div>
+                    </div>
+                    <div className="text-center">
+                      <div className="h-4 bg-green-100 rounded mb-1"></div>
+                      <div className="h-2 bg-gray-100 rounded"></div>
+                    </div>
+                    <div className="text-center">
+                      <div className="h-4 bg-purple-100 rounded mb-1"></div>
+                      <div className="h-2 bg-gray-100 rounded"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Menu Items */}
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-gray-100 rounded"></div>
+                      <div className="h-3 bg-gray-200 rounded flex-1"></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-gray-100 rounded"></div>
+                      <div className="h-3 bg-gray-200 rounded flex-1"></div>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-gray-100 rounded"></div>
+                      <div className="h-3 bg-gray-200 rounded flex-1"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
+          <div className="order-1 md:order-2">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Hantera din profil
             </h3>
@@ -132,17 +249,6 @@ const Index = () => {
               Håll din profil uppdaterad med CV, personligt brev och referenser. 
               Se statistik över dina ansökningar och matchningar.
             </p>
-            <div className="flex gap-4">
-              <div className="w-48 h-96 bg-black rounded-[1.5rem] p-1 shadow-lg">
-                <div className="bg-white rounded-[1.2rem] overflow-hidden h-full">
-                  <img 
-                    src="/lovable-uploads/82d82aa4-2de2-44db-9d8c-9da73a782f10.png" 
-                    alt="yuapply profil"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
